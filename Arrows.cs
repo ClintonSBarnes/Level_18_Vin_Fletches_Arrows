@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Level_18_Vin_Fletches_Arrows
 {
-    public class Arrows
+    class Arrows
     {
         //establishes variables
-        public string _arrowhead = "1";
-        public float _shaft = 0.00f;
-        public string _fletching = "2";
-        private string userInput = "3";
-        public float _arrowCost = 0.00f;
+        string _arrowhead = "1";
+        float _shaft = 0.00f;
+        string _fletching = "2";
+        string userInput = "3";
+        float _arrowCost = 0.00f;
+        float totalCost = 0f;
+
 
         //allows user to select the arrowhead material, adds to the cost of the arrow, and validates user input
         public float SelectArrowHead()
@@ -111,8 +113,24 @@ namespace Level_18_Vin_Fletches_Arrows
 
 
         }
+
+        public void BuildArrow()
+        {
+            Console.WriteLine($"\n--------------------------------------------------------------------------------------" +
+        $"\nThat is a fine arrow with a {_shaft}cm shaft, a flething of {_fletching}, and a head of {_arrowhead}! " +
+        $"It will only cost you {_arrowCost} gold");
+
+            //adds cost of the current arrow to the total of all arrows.
+            totalCost = _arrowCost;
+        }
+
+        public float  UpdateTotalCost()
+        { 
+        return totalCost;
+        }
     }
 }
+
 
 enum ArrowHeads
 {
